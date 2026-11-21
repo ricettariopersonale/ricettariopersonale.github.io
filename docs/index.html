@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ricettario</title>
+  <meta name="description" content="Le mie ricette, divise per categoria">
+  <meta name="theme-color" content="#a8452b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Ricettario">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar" id="bar">
+    <button class="icon-btn" id="back" aria-label="Indietro" hidden>
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <h1 id="bar-title">Ricettario</h1>
+    <div class="bar-actions" id="bar-actions"></div>
+  </header>
+
+  <main id="view"></main>
+
+  <button class="fab" id="fab" aria-label="Aggiungi ricetta">
+    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
+
+  <dialog id="add-dialog" class="sheet">
+    <form method="dialog" id="add-form">
+      <h2>Nuova ricetta</h2>
+      <label class="field">
+        <span>Link della ricetta</span>
+        <div class="row">
+          <input type="url" id="add-url" placeholder="https://…" autocomplete="off" inputmode="url">
+          <button type="button" class="btn ghost" id="paste-btn">Incolla</button>
+        </div>
+      </label>
+      <label class="field">
+        <span>Categoria</span>
+        <select id="add-cat"></select>
+      </label>
+      <p class="msg" id="add-msg" role="status"></p>
+      <div class="actions">
+        <button type="button" class="btn ghost" id="manual-btn">Scrivi a mano</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" value="cancel" id="add-cancel">Annulla</button>
+        <button type="submit" class="btn primary" id="add-go">Importa</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
